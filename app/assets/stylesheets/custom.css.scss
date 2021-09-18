@@ -8,7 +8,7 @@ $font-family-sans-serif: Roboto;
 
 .nav-link {
     font-family: $font-family-sans-serif;
-    color: white !important;
+    color: lightgray !important;
 }
 
 #logo {
@@ -24,6 +24,14 @@ body {
     font-family: $font-family-sans-serif;
     height: 100%;
     background-color: lightgrey;
+}
+
+.nav-link.active {
+    color: white !important;
+}
+
+.nav-link:hover {
+    color: white !important;
 }
 
 .search-area {
