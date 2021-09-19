@@ -13,8 +13,11 @@
         <tr>
           <th scope="row"><%= friend.first_name %> <%= friend.last_name %></th>
           <td><%= friend.email %></td>
-          <td><%= link_to 'Unfollow', "#", method: :delete, data: {confirm: 'Are you sure?'},
-                                            class: "btn btn-sm btn-warning" %></td>
+          <td>
+            <%= link_to 'View Profile', user_path(friend), method: :get, class: "btn btn-sm btn-success" %>
+            <%= link_to 'Unfollow', friendship_path(friend), method: :delete, data: {confirm: 'Are you sure?'},
+                                            class: "btn btn-sm btn-warning" %>
+          </td>
         </tr>
         <% end %>
       </tbody>

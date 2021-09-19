@@ -1,0 +1,33 @@
+<h2> User Details </h2>
+
+<div class="results-block">
+  <%= render 'layouts/messages' %>
+</div>
+
+
+  <div class="card card-header results-block mt-3">
+      
+      <table class="table table-bordered table-hover border-dark col-md-12">
+        <tbody>
+          <tr>
+            <td scope="row"><strong>Name: </strong> <%= @user.full_name %></td>
+            <td scope="row"><strong>Email: </strong> <%= @user.email %></td>
+            <td scope="row">
+            <% if current_user.not_friends_with?(@user.id) %>
+              <%= link_to 'Follow friend?', friendships_path(id: @user.id), class: "btn btn-success", method: :post %>
+            <% else %>
+              <button type="button" class="btn btn-primary">
+                <span class="badge bg-secondary">
+                  Already following
+                </span>
+              </button>
+            <% end %></td>
+          </tr>
+        </tbody>
+      </table>
+  </div>
+  <% if !@tracked_stocks.empty? %>
+    <%= render 'stocks/list' %>
+  <% else %>
+    <p class="lead mt-4"> This user is not tracking any stock </p>
+  <% end %>
